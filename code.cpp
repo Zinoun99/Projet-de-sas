@@ -108,3 +108,70 @@ void TrierCroissante() {
     printf("La liste est triee avec succes\n");
 }
 
+oid TrierDecroissante() {
+    Tache temp;
+    for (int i = 0; i < taille - 1; i++) {
+        for (int j = i; j < taille; j++) {
+            if (T[i].date.annee < T[j].date.annee ||
+                (T[i].date.annee == T[j].date.annee && T[i].date.mois < T[j].date.mois) ||
+                (T[i].date.annee == T[j].date.annee && T[i].date.mois == T[j].date.mois && T[i].date.jours < T[j].date.jours)) {
+                temp = T[i];
+                T[i] = T[j];
+                T[j] = temp;
+            }
+        }
+    }
+    printf("La liste est triee avec succes\n");
+}
+
+
+
+int main (){
+	
+	do{
+		printf("\n\n Le menu principale\n\n");
+		printf("1.  Ajouter une Tache\n");
+		printf("2.  Afficher la Liste des Taches\n");
+		printf("3.  Modifier une Tache\n");
+		printf("4.  Supprimer une Tache\n");
+		printf("5.  Ordonner les Taches par order croissante\n");
+		printf("6.  Ordonner les Taches par order decroissante\n");
+		
+		do{
+			printf("Entrer votre choix:\n");
+			scanf("%d", &choix);
+			if(choix>8 || choix<1)
+			printf("Votre choix doit compris entre 1 et 8\n");
+		}while(choix>8 || choix<1);
+		
+		switch(choix){
+			case 1:
+				Ajouter();
+				break;
+				
+			case 2:
+				Afficher();
+				break;
+			case 3:
+                Modifier();
+				break;
+			case 4:
+				Supprimer();
+				break;
+			
+			case 5:
+				TrierCroissante();
+				break;
+			case 6:
+				TrierDecroissante();
+				break;
+				
+			default:
+				break;
+			}
+				
+	}while(choix=!0); 
+	int x;
+		
+	return 0;
+}
