@@ -52,3 +52,25 @@ void Afficher() {
 }
 
 		
+void Modifier(){
+	int numTache;
+	
+	printf("Entrer le numero de la tache a modifier: \n");
+	scanf("%d", &numTache);
+	
+		if(numTache >= 1 || numTache <= nbr){
+			
+			numTache--;
+    		printf("Entrer la modification pour la tache %d\n", numTache+1);
+    		printf("Nouvelle description : ");
+    		scanf("%s", T[numTache].description);
+    		printf("Nouvelle date (jours/mois/annee): ");
+    		scanf("%d/%d/%d", &T[numTache].date.jours, &T[numTache].date.mois, T[numTache].date.annee);
+    		printf("Nouvelle priorite : ");
+    		scanf("%d", &T[numTache].priorite);
+    		printf("Tache modifiee avec succes!\n");
+			}
+		else 
+		printf("Aucune tache est trouve.\n");
+	}
+	
