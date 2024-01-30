@@ -171,7 +171,7 @@ int main (){
 			}
 				
 	}while(choix=!0); 
-	int x;
+	
 		
 	return 0;
 }
