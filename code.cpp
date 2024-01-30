@@ -74,3 +74,37 @@ void Modifier(){
 		printf("Aucune tache est trouve.\n");
 	}
 	
+void Supprimer() {
+    int index;
+    printf("Entrer le num�ro de la tache a supprimer : ");
+    scanf("%d", &index);
+
+    if (index <= 0 || index > taille) {
+        printf("Num�ro de tache invalide.\n");
+    } else {
+        index--; 
+        for (int i = index; i < taille - 1; i++) {
+            T[i] = T[i+1];
+        }
+        taille--;
+
+        printf("Tache supprimee avec succes.\n");
+    }
+}
+
+void TrierCroissante() {
+    Tache temp;
+    for (int i = 0; i < taille - 1; i++) {
+        for (int j = i; j < taille; j++) {
+            if (T[i].date.annee > T[j].date.annee ||
+                (T[i].date.annee == T[j].date.annee && T[i].date.mois > T[j].date.mois) ||
+                (T[i].date.annee == T[j].date.annee && T[i].date.mois == T[j].date.mois && T[i].date.jours > T[j].date.jours)) {
+                temp = T[i];
+                T[i] = T[j];
+                T[j] = temp;
+            }
+        }
+    }
+    printf("La liste est triee avec succes\n");
+}
+
