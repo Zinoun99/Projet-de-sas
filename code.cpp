@@ -108,7 +108,7 @@ void TrierCroissante() {
     printf("La liste est triee avec succes\n");
 }
 
-oid TrierDecroissante() {
+void TrierDecroissante() {
     Tache temp;
     for (int i = 0; i < taille - 1; i++) {
         for (int j = i; j < taille; j++) {
